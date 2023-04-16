@@ -1,47 +1,25 @@
-$('.slider').slick({
-  slidesToShow: 1,
-  autoplay: true,
-  prevArrow: false,
-  nextArrow:false
-});
-const scrollBtn = document.getElementById("btn");
+const form = document.getElementById('contact-form');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const messageInput = document.getElementById('message');
 
-scrollBtn.addEventListener("click", function() {
-  window.scrollTo({
-    top: 620,
-    behavior: "smooth"
-  });
-});
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
 
-const scrollBtn1 = document.getElementById("scrollBtn1");
+  const nameValue = nameInput.value.trim();
+  const emailValue = emailInput.value.trim();
+  const messageValue = messageInput.value.trim();
 
-scrollBtn1.addEventListener("click", function() {
-  window.scrollTo({
-    top: 620,
-    behavior: "smooth"
-  });
-});
-const scrollBtn2 = document.getElementById("scrollBtn2");
-
-scrollBtn2.addEventListener("click", function() {
-  window.scrollTo({
-    top: 1200,
-    behavior: "smooth"
-  });
-});
-const scrollBtn3 = document.getElementById("scrollBtn3");
-
-scrollBtn3.addEventListener("click", function() {
-  window.scrollTo({
-    top: 1800,
-    behavior: "smooth"
-  });
-});
-const scrollBtn4 = document.getElementById("scrollBtn4");
-
-scrollBtn4.addEventListener("click", function() {
-  window.scrollTo({
-    top: 2325,
-    behavior: "smooth"
-  });
+  if (nameValue === '') {
+    alert('Please enter your name');
+    nameInput.focus();
+  } else if (emailValue === '') {
+    alert('Please enter your email');
+    emailInput.focus();
+  } else if (messageValue === '') {
+    alert('Please enter your message');
+    messageInput.focus();
+  } else {
+    form.submit();
+  }
 });
